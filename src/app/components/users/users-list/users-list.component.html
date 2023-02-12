@@ -1,0 +1,87 @@
+<div class="col-lg-12 mt-lg-0">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="user-dashboard-info-box table-responsive shadow-sm">
+        <table class="table" *ngIf="state">
+          <tbody style="display: contents">
+            <tr
+              class="users-list"
+              *ngFor="let user of state.users | slice : startIndex : endIndex"
+            >
+              <td class="title">
+                <div class="thumb">
+                  <img class="img-fluid" src="{{ user.avatar_url }}" alt="" />
+                </div>
+                <div class="user-list-details">
+                  <div class="user-list-info">
+                    <div class="user-list-title">
+                      <h5 class="mb-0">
+                        <a [routerLink]="['/profil', user.login]">{{
+                          user.login
+                        }}</a>
+                      </h5>
+                    </div>
+                    <div class="user-list-option">
+                      <ul class="list-unstyled">
+                        <li>
+                          <i class="fas fa-filter pr-1"></i>Information
+                          Technology
+                        </li>
+                        <li>
+                          <i class="fas fa-map-marker-alt pr-1"></i>Rolling
+                          Meadows, IL 60008
+                        </li>
+                      </ul>
+                      <p></p>
+                    </div>
+                  </div>
+                </div>
+              </td>
+
+              <td class="user-list-favourite-time text-center">
+                <h5><strong>58</strong></h5>
+                <p><small>Publications</small></p>
+                <button class="btn btn-success">
+                  <span class="fa fa-plus-circle"></span>
+                  Follow
+                </button>
+              </td>
+
+              <td class="user-list-favourite-time text-center">
+                <h5><strong> 10,7K </strong></h5>
+                <p><small>Followers</small></p>
+
+                <button
+                  class="btn btn-info btn-block"
+                  (click)="onViewProfile(user.login)"
+                  [routerLink]="['/profil', user.login]"
+                >
+                  <span class="fa fa-user"></span>
+                  View Profile
+                </button>
+              </td>
+
+              <td class="user-list-favourite-time text-center">
+                <h5><strong>35</strong></h5>
+                <p><small>Following</small></p>
+                <button type="button" class="btn btn-primary btn-block">
+                  <span class="fa fa-gear"></span> Options
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="text-center mt-3 mt-sm-3">
+          <button class="btn" (click)="previousPage()">
+            <i class="material-icons"> arrow_back_ios</i>
+          </button>
+          Page {{ currentPage }} of {{ totalPages }}
+          <button class="btn" (click)="nextPage()">
+            <i class="material-icons"> arrow_forward_ios </i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

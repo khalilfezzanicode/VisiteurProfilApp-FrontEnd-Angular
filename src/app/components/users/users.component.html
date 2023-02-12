@@ -1,0 +1,29 @@
+<div class="p-1">
+  <app-users-button></app-users-button>
+
+  <ng-container
+    *ngIf="usersState$ | async as state"
+    [ngSwitch]="state.dataState"
+  >
+    <ng-container *ngSwitchCase="usersStateEnum.INITIAL">
+      <div class="p-2">Mode Initial</div>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="usersStateEnum.LOADING">
+      <div class="d-flex justify-content-center">
+        <div class="spinner-border" role="status"></div>
+        <span>Loading...</span>
+      </div>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="usersStateEnum.LOADED">
+      <app-users-list [state]="state"></app-users-list>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="usersStateEnum.ERROR">
+      <div class="p-2" [ngStyle]="{ color: 'red' }">
+        <strong> {{ state.errorMessage | json }}</strong>
+      </div>
+    </ng-container>
+  </ng-container>
+</div>

@@ -1,0 +1,69 @@
+
+    <div class="container ">
+        <div class="card"> 
+        <div class="col-lg-12  mt-lg-0">
+          <div class="card-header">Mes Dépôts : {{nbrRepositories}}</div>
+          <div class="card-body"> 
+            <div class="row">
+              <div class="col-md-12">
+                <div class="user-dashboard-info-box table-responsive      shadow-sm">
+                  <table  class="table">
+                  
+                    <thead class="thead-dark">
+                      <tr>
+                        <th  >Id Dépôt</th>
+                        <th >Nom dépôt</th>
+                        <th class="col-md-5">Description</th>
+                        <th >Nbr d'étoiles</th>
+                        <th >Statistiques</th>
+  
+                      </tr>
+                    </thead>
+  
+          <tbody>
+            <tr *ngFor="let r of repositories | slice:startIndex:endIndex ">
+               <td>{{r.id}}</td>
+              <td>{{r.name}}</td>
+              <td class="col-md-3">{{r.description}}  </td>
+              <td> <strong> {{r.stargazers_count}} </strong> 
+                   <i class="material-icons"  id="icon" >star</i>
+                  </td>
+                    <td>
+                      <a [routerLink]="['/repository']" [queryParams]="{ username: r.owner.login, name: r.name }">  
+                        <!-- or <a [routerLink]="['/repository',r.owner.login,r.name]"> -->
+  
+                          <i class="material-icons">
+                            insert_chart
+                          </i>
+                      </a>
+                     </td>
+            </tr>
+            
+          </tbody>
+        </table>
+        <div   class="text-center mt-3 mt-sm-3">
+          
+  
+          <button class="btn " (click)="previousPage()">                
+            <i class="material-icons">
+              arrow_back_ios</i>
+         </button>
+                   Page {{currentPage}} of {{totalPages}}
+  
+         <button class="btn " (click)="nextPage()">
+          <i class="material-icons">
+               arrow_forward_ios
+              </i>
+        </button>
+  
+          </div>
+        
+  
+      </div>
+    </div>
+  </div>
+  </div>
+  
+  </div>
+  </div>
+   </div>

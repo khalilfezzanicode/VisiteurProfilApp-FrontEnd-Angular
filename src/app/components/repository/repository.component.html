@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="row text-muted">
+    <div class="col" style="color: lightgray">
+      <label><strong> ID Repository : </strong> </label>
+      <label class="">{{ repository.id }}</label>
+    </div>
+    <div class="col" style="color: lightgray">
+      <label> <strong> Nom Repository :</strong></label>
+      <label class="">{{ repository.name }}</label>
+    </div>
+    <div class="col" style="color: lightgray">
+      <label> <strong>Updated :</strong></label>
+      <label class="">{{repository.updated_at | date : "dd/MM/yyyy hh:mm"}}</label>
+    </div>
+    <br /><br />
+  </div>
+
+  <div class="row">
+    <div class="col-sm">
+      <div class="card text-center">
+        <div class="card-header">
+          <strong> Commits</strong>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{ nbrCommits }}</h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm">
+      <div class="card text-center">
+        <div class="card-header">
+          <strong> Issues</strong>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{ nbrIssues }}</h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm">
+      <div class="card text-center">
+        <div class="card-header">
+          <strong>Pulls requests</strong>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{ nbrPulls }}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row text-muted">
+    <div class="col-lg-6">
+      <app-pie
+        [pieChartLabels]="pieChartLabels"
+        [pieChartData]="pieChartData"
+        [pieChartColors]="pieChartColors"
+      ></app-pie>
+    </div>
+    <div class="col-lg-6">
+      <app-bar
+        [barChartLabels]="barChartLabels"
+        [barChartData]="barChartData"
+      ></app-bar>
+    </div>
+  </div>
+</div>
+>

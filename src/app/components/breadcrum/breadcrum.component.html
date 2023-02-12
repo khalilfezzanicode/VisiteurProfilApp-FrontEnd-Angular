@@ -1,0 +1,7 @@
+<ol class="breadcrumb">
+  <ng-container *ngFor="let path of paths">
+    <li class="breadcrumb-item">
+      <a routerLinkActive="active" [routerLink]="path.url">{{ path.name }}</a>
+    </li>
+  </ng-container>
+</ol>

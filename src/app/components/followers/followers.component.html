@@ -1,0 +1,28 @@
+<div class="card">
+  <div class="">
+    <h4>Followers ({{ nbrFollower }})</h4>
+  </div>
+
+  <div class="card-body">
+    <div class="col-lg-12">
+      <div class="row">
+        <div *ngFor="let f of followers">
+          <div style="text-align: center">
+            <img
+              class="img-fluid"
+              src="{{ f.avatar_url }}"
+              alt="{{ f.login }}"
+              class="rounded-circle"
+              width="50"
+            />
+            <p style="margin-left: 10px">
+              <a href="#">
+                <small> {{ f.login }} </small></a
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
