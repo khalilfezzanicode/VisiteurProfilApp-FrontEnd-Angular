@@ -27,6 +27,7 @@ import { UsersEffects } from './ngrx/users.effects';
 import { usersReducer } from './ngrx/users.reducer';
 import { UsersListComponent } from './components/users/users-list/users-list.component';
 import { RepositoriesComponent } from './components/profil/repositories/repositories.component';
+import { TestComponent } from './components/test/test.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { RepositoriesComponent } from './components/profil/repositories/reposito
     UsersButtonComponent,
     UsersListComponent,
     RepositoriesComponent,
+    TestComponent,
   ],
   imports: [
     BrowserModule,
